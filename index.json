@@ -1,0 +1,18 @@
+{
+  "version": "1",
+  "updatedAt": "2026-03-25T00:00:00Z",
+  "recipes": [
+    {
+      "id": "add-jwt-auth-sample",
+      "name": "Add JWT Authentication",
+      "description": "Add JWT-based authentication to an Express/Node.js API with middleware, token validation, and tests",
+      "author": "eclaireai",
+      "tags": ["auth", "jwt", "express", "nodejs", "security"],
+      "sourceAgent": "claude-code",
+      "downloads": 0,
+      "rating": 0,
+      "createdAt": "2026-03-25T00:00:00Z",
+      "stepCount": 6
+    }
+  ]
+}
