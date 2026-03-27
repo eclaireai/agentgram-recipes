@@ -1,0 +1,56 @@
+{
+  "name": "GitHub Actions CI/CD",
+  "description": "Production GitHub Actions workflow for Node.js. Includes npm caching (cuts install from 60s to 5s), parallel test and lint jobs, type checking, and deploy-to-Vercel/Railway on merge to main.",
+  "sourceSessionId": "curated-github-actions-ci",
+  "steps": [
+    {
+      "action": "create_file",
+      "target": ".github/workflows/ci.yml",
+      "description": "Create CI workflow: trigger on PR and push to main, runs on ubuntu-latest"
+    },
+    {
+      "action": "modify_file",
+      "target": ".github/workflows/ci.yml",
+      "description": "Add npm cache step using actions/cache with cache key on package-lock.json hash"
+    },
+    {
+      "action": "modify_file",
+      "target": ".github/workflows/ci.yml",
+      "description": "Add parallel jobs: typecheck, lint, test (with coverage upload), build"
+    },
+    {
+      "action": "create_file",
+      "target": ".github/workflows/deploy.yml",
+      "description": "Create deploy workflow triggered on push to main: runs tests then deploys to Vercel"
+    },
+    {
+      "action": "create_file",
+      "target": ".github/workflows/security.yml",
+      "description": "Add weekly security scan: npm audit, CodeQL analysis, Dependabot alerts"
+    }
+  ],
+  "parameters": {
+    "NODE_VERSION": "22",
+    "CACHE_KEY": "node-modules-${{ hashFiles('package-lock.json') }}"
+  },
+  "tags": [
+    "devops",
+    "github-actions",
+    "ci-cd",
+    "automation",
+    "deployment",
+    "caching"
+  ],
+  "version": "2.0.0",
+  "metadata": {
+    "id": "github-actions-ci",
+    "author": "agentgram-team",
+    "createdAt": "2026-03-27T00:00:00Z",
+    "updatedAt": "2026-03-27T17:01:01.078Z",
+    "downloads": 0,
+    "rating": 0,
+    "ratingCount": 0,
+    "sourceAgent": "curator",
+    "checksum": "a6385f95b12653f6"
+  }
+}
