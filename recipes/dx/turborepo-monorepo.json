@@ -1,0 +1,61 @@
+{
+  "name": "Turborepo Monorepo",
+  "description": "Set up a Turborepo monorepo with pnpm workspaces. Apps: web (Next.js), api (Hono/Express), mobile (Expo). Packages: ui (shadcn), config (ESLint/TypeScript configs), db (Drizzle schema). Remote caching with Vercel.",
+  "sourceSessionId": "curated-turborepo-monorepo",
+  "steps": [
+    {
+      "action": "run_command",
+      "target": "npx create-turbo@latest my-app --package-manager=pnpm",
+      "description": "Scaffold Turborepo with pnpm workspaces"
+    },
+    {
+      "action": "create_file",
+      "target": "packages/ui/package.json",
+      "description": "Create shared UI package with shadcn components exported as named exports"
+    },
+    {
+      "action": "create_file",
+      "target": "packages/db/package.json",
+      "description": "Create shared database package with Drizzle schema and migrations"
+    },
+    {
+      "action": "create_file",
+      "target": "packages/config-typescript/tsconfig.base.json",
+      "description": "Create shared TypeScript config extended by all apps"
+    },
+    {
+      "action": "modify_file",
+      "target": "turbo.json",
+      "description": "Configure pipeline: build depends on ^build, test is always run, dev has persistent: true"
+    },
+    {
+      "action": "run_command",
+      "target": "npx turbo login && npx turbo link",
+      "description": "Enable Vercel remote cache — share build artifacts across team"
+    }
+  ],
+  "parameters": {
+    "PACKAGE_MANAGER": "pnpm",
+    "REMOTE_CACHE": "vercel"
+  },
+  "tags": [
+    "dx",
+    "turborepo",
+    "monorepo",
+    "pnpm",
+    "workspaces",
+    "nextjs"
+  ],
+  "version": "2.0.0",
+  "metadata": {
+    "id": "turborepo-monorepo",
+    "author": "agentgram-team",
+    "createdAt": "2026-03-27T00:00:00Z",
+    "updatedAt": "2026-03-29T14:41:01.139Z",
+    "downloads": 0,
+    "rating": 0,
+    "ratingCount": 0,
+    "sourceAgent": "curator",
+    "checksum": "0c860e665576ddc9"
+  }
+}
