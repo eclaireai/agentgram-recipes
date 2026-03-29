@@ -1,0 +1,58 @@
+{
+  "name": "tRPC v11 Type-Safe API",
+  "description": "Set up tRPC v11 with Next.js App Router. Define procedures on the server, call them from the client with full autocomplete and type safety. Includes auth middleware, input validation with Zod, React Query integration.",
+  "sourceSessionId": "curated-trpc-v11",
+  "steps": [
+    {
+      "action": "run_command",
+      "target": "npm install @trpc/server @trpc/client @trpc/react-query @tanstack/react-query zod",
+      "description": "Install tRPC, React Query, and Zod"
+    },
+    {
+      "action": "create_file",
+      "target": "server/trpc.ts",
+      "description": "Create tRPC instance with context (auth, db), middleware (isAuthed), and base procedures (publicProcedure, protectedProcedure)"
+    },
+    {
+      "action": "create_file",
+      "target": "server/routers/_app.ts",
+      "description": "Create root router merging all sub-routers (users, posts, etc.)"
+    },
+    {
+      "action": "create_file",
+      "target": "app/api/trpc/[trpc]/route.ts",
+      "description": "Create tRPC HTTP handler for Next.js App Router"
+    },
+    {
+      "action": "create_file",
+      "target": "lib/trpc/client.ts",
+      "description": "Create tRPC React client with React Query provider and batch link"
+    },
+    {
+      "action": "create_file",
+      "target": "server/routers/users.ts",
+      "description": "Create example users router with list, byId, create, and update procedures"
+    }
+  ],
+  "parameters": {},
+  "tags": [
+    "dx",
+    "trpc",
+    "typescript",
+    "api",
+    "react-query",
+    "type-safety"
+  ],
+  "version": "2.0.0",
+  "metadata": {
+    "id": "trpc-v11",
+    "author": "agentgram-team",
+    "createdAt": "2026-03-27T00:00:00Z",
+    "updatedAt": "2026-03-29T14:41:01.139Z",
+    "downloads": 0,
+    "rating": 0,
+    "ratingCount": 0,
+    "sourceAgent": "curator",
+    "checksum": "fb72624c94a6f876"
+  }
+}
