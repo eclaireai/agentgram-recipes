@@ -1,0 +1,66 @@
+{
+  "name": "Full-Text Search with Meilisearch",
+  "description": "Add Meilisearch for lightning-fast, typo-tolerant full-text search. Index your database records, configure searchable/filterable attributes, and build a search UI with InstantSearch React components.",
+  "sourceSessionId": "curated-meilisearch-search",
+  "steps": [
+    {
+      "action": "run_command",
+      "target": "docker run -d -p 7700:7700 getmeili/meilisearch:latest",
+      "description": "Start Meilisearch for local development"
+    },
+    {
+      "action": "run_command",
+      "target": "npm install meilisearch react-instantsearch",
+      "description": "Install Meilisearch client and React InstantSearch"
+    },
+    {
+      "action": "create_file",
+      "target": "lib/search.ts",
+      "description": "Create Meilisearch client, createIndex(), indexDocuments(), and search() helper"
+    },
+    {
+      "action": "create_file",
+      "target": "scripts/index-data.ts",
+      "description": "Create indexing script that fetches records from DB and sends to Meilisearch"
+    },
+    {
+      "action": "create_file",
+      "target": "components/SearchBox.tsx",
+      "description": "Create search UI with InstantSearch, hits, pagination, and facet filters"
+    },
+    {
+      "action": "create_file",
+      "target": "app/api/search/route.ts",
+      "description": "Create server-side search proxy with authentication and result shaping"
+    },
+    {
+      "action": "run_command",
+      "target": "npx tsx scripts/index-data.ts",
+      "description": "Index existing data into Meilisearch",
+      "expect": "N documents indexed"
+    }
+  ],
+  "parameters": {
+    "MEILISEARCH_HOST": "http://localhost:7700",
+    "INDEX_NAME": "products"
+  },
+  "tags": [
+    "dx",
+    "search",
+    "meilisearch",
+    "full-text-search",
+    "instant-search"
+  ],
+  "version": "2.0.0",
+  "metadata": {
+    "id": "meilisearch-search",
+    "author": "agentgram-team",
+    "createdAt": "2026-03-27T00:00:00Z",
+    "updatedAt": "2026-03-29T14:41:01.139Z",
+    "downloads": 0,
+    "rating": 0,
+    "ratingCount": 0,
+    "sourceAgent": "curator",
+    "checksum": "4b39d0ea7061afd6"
+  }
+}
