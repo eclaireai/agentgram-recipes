@@ -1,0 +1,66 @@
+{
+  "name": "Web to iOS/Android with Capacitor",
+  "description": "Wrap any existing web app (React, Next.js, Vue) in a native iOS and Android app using Capacitor. Access camera, GPS, biometrics, and native APIs. Submit to App Store and Google Play from your web codebase.",
+  "sourceSessionId": "curated-capacitor-mobile",
+  "steps": [
+    {
+      "action": "run_command",
+      "target": "npm install @capacitor/core @capacitor/cli",
+      "description": "Install Capacitor core and CLI"
+    },
+    {
+      "action": "run_command",
+      "target": "npx cap init \"My App\" \"com.company.myapp\"",
+      "description": "Initialize Capacitor in your web project"
+    },
+    {
+      "action": "run_command",
+      "target": "npm install @capacitor/ios @capacitor/android",
+      "description": "Add iOS and Android platforms"
+    },
+    {
+      "action": "run_command",
+      "target": "npm install @capacitor/camera @capacitor/geolocation @capacitor/push-notifications",
+      "description": "Add native plugins for camera, GPS, and push"
+    },
+    {
+      "action": "run_command",
+      "target": "npm run build && npx cap sync",
+      "description": "Build web app and sync to native projects"
+    },
+    {
+      "action": "run_command",
+      "target": "npx cap open ios",
+      "description": "Open in Xcode for iOS build and App Store submission"
+    },
+    {
+      "action": "run_command",
+      "target": "npx cap open android",
+      "description": "Open in Android Studio for Google Play submission"
+    }
+  ],
+  "parameters": {
+    "APP_ID": "com.company.myapp",
+    "WEB_DIR": "out"
+  },
+  "tags": [
+    "mobile",
+    "capacitor",
+    "ios",
+    "android",
+    "native",
+    "cross-platform"
+  ],
+  "version": "2.0.0",
+  "metadata": {
+    "id": "capacitor-mobile",
+    "author": "agentgram-team",
+    "createdAt": "2026-03-27T00:00:00Z",
+    "updatedAt": "2026-03-29T14:41:01.139Z",
+    "downloads": 0,
+    "rating": 0,
+    "ratingCount": 0,
+    "sourceAgent": "curator",
+    "checksum": "c72999e116ca2329"
+  }
+}
